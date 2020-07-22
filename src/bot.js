@@ -1,8 +1,8 @@
 const CQHttp = require('cqhttp');
 const bot = new CQHttp({//请参考cqhttp配置文档进行配置
-    apiRoot: '',
-    accessToken: '',
-    secret: ''
+    apiRoot: 'http://127.0.0.1:5701',
+    accessToken: 'robot',
+    secret: '123'
 });
 module.exports={
     bot,

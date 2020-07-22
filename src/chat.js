@@ -4,7 +4,7 @@ const bot=app.bot;
 const Levenshtein=require('./similar');
 const tAlp=require('./tencentAi');
 const config={//请修改配置
-    useTencentAlp:0,//是否使用腾讯ai的对话,0为不使用，1为使用
+    useTencentAlp:1,//是否使用腾讯ai的对话,0为不使用，1为使用
     similarity:0.5,//启用腾讯ai后优先使用学习的对话，低于一定相似度再调用腾讯的
     cqImagePath:'',//请修改为酷Q的image目录
     storagePath:'',//请修改为学习对话时下载的图片存放的目录,
