@@ -7,7 +7,7 @@ const feature = require("./feature");
 const config = {
   //请修改配置
   useTencentAlp: 1, //是否使用腾讯ai的对话,0为不使用，1为使用
-  similarity: 0.5, //启用腾讯ai后优先使用学习的对话，低于一定相似度再调用腾讯的
+  similarity: 0.9, //启用腾讯ai后优先使用学习的对话，低于一定相似度再调用腾讯的
   cqImagePath: "", //请修改为酷Q的image目录
   storagePath: "", //请修改为学习对话时下载的图片存放的目录,
   at: 0 //是否需要at来触发对话,0为不使用，1为使用
@@ -58,7 +58,11 @@ function chats() {
     });
     let max_value = Math.max.apply(null, max_similar);
     let returnMessage = "";
+   
+    //根据相似度 判断是否使用腾讯ai回答
     if (max_value < config.similarity) {
+       //10%几率回复
+      if (Math.random() < 1 - 0.1) return 0;
       if (config.useTencentAlp === 1) {
         returnMessage = await tAlp.tencentAlp(context.message);
         if (returnMessage === "") {

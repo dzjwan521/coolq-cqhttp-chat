@@ -4,9 +4,8 @@ let checkGlod = function (text = "风月同天") {
   return new Promise((resolve, reject) => {
     axios
       .get("http://spider.jx3box.com/jx3price")
-      .then(function (response) {
-        console.log(response);
-        resolve(response);
+      .then(function (res) {
+        resolve(res.data.gate2409);
       })
       .catch(function (error) {
         console.log(error);
